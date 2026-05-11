@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponderada</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <select id="parameters" name="parameters">
+    <option value="interchange">Interchange</option>
+    <option value="taxa_utilizacao_media">Taxa de utilização média do limite</option>
+    <option value="loss_given_default">Loss Given Default</option>
+    <option value="inadimplencia_fisica_maxima">Inadimplência física máxima permitida</option>
+    <option value="inadimplencia_financeira_maxima">Inadimplência financeira máxima permitida</option>
+    <option value="limite_maximo_concedivel">Limite máximo concedível</option>
+    <option value="multiplicador_maximo_alavancagem">Multiplicador máximo de alavancagem para a faixa de risco</option>
+  </select>
+</body>
+
+<script>
+  let selectedParameter = 'interchange';
+
+  function setup() {
+    createCanvas(600, 400);
+    fill(0);
+
+    const selectElement = document.getElementById('parameters');
+    selectedParameter = selectElement.value;
+    selectElement.addEventListener('change', (event) => {
+      selectedParameter = event.target.value;
+    });
+  }
+
+  function draw() {
+    background(240);
+    translate(0, height)
+    drawGrid();
+  }
+
+  function drawGrid(maxX, maxY) {
+    fill(120);
+
+    noStroke()
+    for (var x = -width; x < width; x += 40) {
+      line(x, -height, x, height);
+      text(x, x + 1, -4);
+    }
+
+    stroke(200);
+    for (var y = -height; y < height; y += 40) {
+      line(-width, y, width, y);
+      text(-y, 1, y - 4);
+    }
+  }
+</script>
+
+</html>
