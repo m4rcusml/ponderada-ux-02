@@ -1,6 +1,6 @@
 const resultados = [];
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 10; i++) {
   resultados.push({
     id: i + 1,
     interchange: parseFloat((Math.random() * 100).toFixed(2)),
