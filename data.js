@@ -1,15 +1,14 @@
-const resultados = [];
-
-for (let i = 0; i < 10; i++) {
-  resultados.push({
-    id: i + 1,
-    interchange: parseFloat((i * 10 + Math.random() * 5).toFixed(2)),
-    taxa_utilizacao_media: parseFloat((i * 10 + Math.random() * 5).toFixed(2)),
-    loss_given_default: parseFloat((i * 10 + Math.random() * 5).toFixed(2)),
-    inadimplencia_fisica_maxima: parseFloat((i * 10 + Math.random() * 5).toFixed(2)),
-    inadimplencia_financeira_maxima: parseFloat((i * 10 + Math.random() * 5).toFixed(2)),
-    limite_maximo_concedivel: parseFloat((i * 5000 + Math.random() * 2000).toFixed(2)),
-    multiplicador_maximo_alavancagem: parseFloat((i * 0.5 + Math.random() * 0.2).toFixed(2)),
-    maximo_retorno_obtido: parseFloat((Math.random() * 1000).toFixed(2))
-  });
-}
+const resultados = [
+  { id: 1, interchange: 42.1, taxa_utilizacao_media: 99.2, loss_given_default: 4.5, inadimplencia_fisica_maxima: 55.3, inadimplencia_financeira_maxima: 81.4, limite_maximo_concedivel: 16800, multiplicador_maximo_alavancagem: 5.0, maximo_retorno_obtido: 120 },
+  { id: 2, interchange: 81.4, taxa_utilizacao_media: 4.2, loss_given_default: 34.1, inadimplencia_fisica_maxima: 99.5, inadimplencia_financeira_maxima: 12.3, limite_maximo_concedivel: 48900, multiplicador_maximo_alavancagem: 2.1, maximo_retorno_obtido: 250 },
+  { id: 3, interchange: 12.3, taxa_utilizacao_media: 55.4, loss_given_default: 88.2, inadimplencia_fisica_maxima: 25.1, inadimplencia_financeira_maxima: 63.8, limite_maximo_concedivel: 1500, multiplicador_maximo_alavancagem: 3.2, maximo_retorno_obtido: 480 },
+  { id: 4, interchange: 94.2, taxa_utilizacao_media: 25.6, loss_given_default: 74.9, inadimplencia_fisica_maxima: 4.2, inadimplencia_financeira_maxima: 88.1, limite_maximo_concedivel: 26500, multiplicador_maximo_alavancagem: 0.4, maximo_retorno_obtido: 390 },
+  { id: 5, interchange: 34.6, taxa_utilizacao_media: 81.1, loss_given_default: 12.8, inadimplencia_fisica_maxima: 42.6, inadimplencia_financeira_maxima: 99.7, limite_maximo_concedivel: 37800, multiplicador_maximo_alavancagem: 1.2, maximo_retorno_obtido: 600 },
+  { id: 6, interchange: 63.8, taxa_utilizacao_media: 42.3, loss_given_default: 99.1, inadimplencia_fisica_maxima: 81.2, inadimplencia_financeira_maxima: 25.4, limite_maximo_concedivel: 11500, multiplicador_maximo_alavancagem: 4.4, maximo_retorno_obtido: 720 },
+  { id: 7, interchange: 4.8, taxa_utilizacao_media: 88.9, loss_given_default: 55.6, inadimplencia_fisica_maxima: 34.8, inadimplencia_financeira_maxima: 74.2, limite_maximo_concedivel: 52000, multiplicador_maximo_alavancagem: 1.6, maximo_retorno_obtido: 530 },
+  { id: 8, interchange: 55.1, taxa_utilizacao_media: 12.7, loss_given_default: 25.4, inadimplencia_fisica_maxima: 94.1, inadimplencia_financeira_maxima: 42.5, limite_maximo_concedivel: 6200, multiplicador_maximo_alavancagem: 4.1, maximo_retorno_obtido: 980 },
+  { id: 9, interchange: 88.5, taxa_utilizacao_media: 74.2, loss_given_default: 42.1, inadimplencia_fisica_maxima: 12.5, inadimplencia_financeira_maxima: 55.9, limite_maximo_concedivel: 32400, multiplicador_maximo_alavancagem: 2.5, maximo_retorno_obtido: 810 },
+  { id: 10, interchange: 25.2, taxa_utilizacao_media: 34.5, loss_given_default: 81.7, inadimplencia_fisica_maxima: 74.6, inadimplencia_financeira_maxima: 4.8, limite_maximo_concedivel: 41500, multiplicador_maximo_alavancagem: 0.8, maximo_retorno_obtido: 670 },
+  { id: 11, interchange: 74.7, taxa_utilizacao_media: 94.6, loss_given_default: 63.3, inadimplencia_fisica_maxima: 88.4, inadimplencia_financeira_maxima: 34.1, limite_maximo_concedivel: 21000, multiplicador_maximo_alavancagem: 3.6, maximo_retorno_obtido: 450 },
+  { id: 12, interchange: 99.4, taxa_utilizacao_media: 63.1, loss_given_default: 94.2, inadimplencia_fisica_maxima: 63.9, inadimplencia_financeira_maxima: 94.5, limite_maximo_concedivel: 45200, multiplicador_maximo_alavancagem: 2.9, maximo_retorno_obtido: 290 }
+];
