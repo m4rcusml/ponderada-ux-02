@@ -1,4 +1,6 @@
 let selectedParameter = 'interchange';
+let currentYLevel = 0;
+let colorProgress = 0;
 
 function setup() {
   createCanvas(600, 400);
@@ -11,18 +13,20 @@ function setup() {
   selectElement.addEventListener('change', (event) => {
     selectedParameter = event.target.value;
     updateBestResultText();
+    currentYLevel = 0;
+    colorProgress = 0;
   });
 }
 
 function updateBestResultText() {
   let maxValY = Math.max(...resultados.map(r => r.maximo_retorno_obtido));
   let bestResult = resultados.find(r => r.maximo_retorno_obtido === maxValY);
-  
+
   let resultDiv = document.getElementById('resultText');
   if (resultDiv && bestResult) {
     let paramSelect = document.getElementById('parameters');
     let paramName = paramSelect.options[paramSelect.selectedIndex].text;
-    
+
     resultDiv.innerHTML = `
       <table border="1" style="border-collapse: collapse; text-align: left; width: 100%; max-width: 500px; margin-top: 10px;">
         <tr>
@@ -54,6 +58,19 @@ function draw() {
   maxY = (maxY * 1.1) || 10;
 
   drawGrid(maxX, maxY);
+
+  let maxTargetY = Math.max(...resultados.map(r => r.maximo_retorno_obtido));
+  let riseSpeed = maxTargetY / 60;
+
+  if (currentYLevel < maxTargetY) {
+    currentYLevel += riseSpeed;
+  } else {
+    currentYLevel = maxTargetY;
+    if (colorProgress < 1) {
+      colorProgress += 0.05;
+    }
+  }
+
   drawBars(maxX, maxY);
 }
 
@@ -102,13 +119,17 @@ function drawBars(maxX, maxY) {
 
   for (let r of resultados) {
     let valX = r[selectedParameter];
-    let valY = r.maximo_retorno_obtido;
+    let targetValY = r.maximo_retorno_obtido;
+
+    let currentValY = Math.min(targetValY, currentYLevel);
 
     let x = map(valX, 0, maxX, 0, gWidth);
-    let y = map(valY, 0, maxY, 0, -gHeight);
+    let y = map(currentValY, 0, maxY, 0, -gHeight);
 
-    if (valY === maxValY) {
-      fill('#00A4E8'); // Azul Pan
+    if (targetValY === maxValY && currentYLevel >= maxValY) {
+      let c1 = color('#4169E1'); // Azul Royal
+      let c2 = color('#00A4E8'); // Azul Pan
+      fill(lerpColor(c1, c2, colorProgress));
     } else {
       fill('#4169E1'); // Azul Royal
     }
